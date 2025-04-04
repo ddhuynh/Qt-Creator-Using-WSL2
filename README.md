@@ -16,7 +16,7 @@ Ok, lets get started...
 
 ## Downloading and Setting up Qt Creator
 When you first visit the Qt Creator website, you might wonder where to go to download the framwork itself.
-Lucky for you, heres a direct link to the installer downloads for each platform: [https://www.qt.io/download-qt-installer-oss](https://www.qt.io/download-qt-installer-oss).
+Luckily for you, I've provided a direct link to the installer downloads for each platform: [https://www.qt.io/download-qt-installer-oss](https://www.qt.io/download-qt-installer-oss).
 There's a lot of info about licensing with (L)GPLv3 which is worth reading, but it mostly revolves around open source usage (I think).
 
 Once you've downloaded the installer for Windows, simply follow through the installer steps to download Qt Creator.
