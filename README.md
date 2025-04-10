@@ -56,7 +56,7 @@ Qt Creator has a bunch of different options for version control, but for simplic
 Once it's downloaded and installed, Qt Creator should see it automatically in ``` Edit > Preferences > Version Control ```. This allows you to select git for version control when creating a new project.
 (You technically could not use git for Windows 11, but I think Qt Creator wants you to.)
 
-Now we just need to set up a GitHub repo to store the project files:
+### Now we just need to set up a GitHub repo and a Qt Project:
 1. Create a new project in Qt Creator. Add it to whatever directory you want to store your projects in. Use git for version control on the final screen.
     - This initializes an empty git repository and adds a .gitignore. We're going to add a remote to this.
 2. Set up an empty repository on github. It can be private or public. You can add a readme, but otherwise keep it empty for simplicity.
@@ -80,9 +80,10 @@ Additional Notes:
 Make sure not to push build files to your github repository!
 Your github repo for for a Qt Project should contain the source files necessary for building your program.
 
-
-Ok, now lets say you want to clone a project. I'd recommend just using the terminal to clone to your local project directory.
-1. Run ``` git clone (YOUR HTTPS / SSH REPO LINK) ```. Authenticate like normal. (Unless you clone a public repo using https.)
+### Ok, say you want to clone a project. I'd recommend just using the terminal to clone to your local project directory.
+1. Run ``` git clone (YOUR HTTPS / SSH REPO LINK) ```. Authenticate like normal. (If you clone a public repo using HTTPS, you don't need to authenticate.)
 2. Open the project up in Qt Creator. Everything should be there and you can continue working like normal.
+
+Man... what a long section...
 
 ## Compiling, Running, and Releasing a Program
