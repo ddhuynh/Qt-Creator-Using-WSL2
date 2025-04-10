@@ -52,9 +52,37 @@ You can technically use any terminal that you're familiar with, just make sure t
 Now you can perform all your git operations for a Qt Project through the terminal!
 
 ## Creating/Cloning a Project
-Almost finished, just a few more sections to go!
+Qt Creator has a bunch of different options for version control, but for simplicity, I'd use git for Windows 11.
+Once it's downloaded and installed, Qt Creator should see it automatically in ``` Edit > Preferences > Version Control ```. This allows you to select git for version control when creating a new project.
+(You technically could not use git for Windows 11, but I think Qt Creator wants you to.)
 
-If I ever forget how I configured my Qt stuff, at least I can look at this and remember!!!
+Now we just need to set up a GitHub repo to store the project files:
+1. Create a new project in Qt Creator. Add it to whatever directory you want to store your projects in. Use git for version control on the final screen.
+    - This initializes an empty git repository and adds a .gitignore. We're going to add a remote to this.
+2. Set up an empty repository on github. It can be private or public. You can add a readme, but otherwise keep it empty for simplicity.
+3. Using the terminal in Qt Creator, navigate to the directory your project is located in. (The directory with the .git hidden folder!)
+4. Run the command: ``` git remote add origin (YOUR HTTPS / SSH REPOSITORY LINK) ```.
+    - This adds a connection to your github repository. You will eventually need to authenticate to make changes to that repository.
+    - Depending on if you're using a PAT or SSH key, you need to do things differently here.
+    - If you're using an SSH key, make sure you can authenticate with your repository and run git operations through the terminal you're using.
+      If you've generateed the keys, they should be located in either ``` C:\Users\YOURUSERNAME\.ssh ``` for windows, or ``` \home\YOURUSERNAME\.ssh ``` for linux.
+    - If you're using HTTPS/PAT, I believe you just need to input the PAT for a repo when the prompted for a password. (I don't use PATs, so I'm not familiar with this.)
+6. Now we need to ensure everything is working correctly. Run the following commands in your terminal: (You will be asked to authenticate using PATs or SSH)
+    - ``` git fetch ``` -- This fetches content from the remote repository.
+    - ``` git pull origin main ``` -- This will fetch+merge the readme from the github repo to your local repo. If there are merge conflicts, you'll need to resolve them before being able to pull.
+    - ``` git branch --set-upstream-to=origin/main main ``` -- Tells your local branch "main" to push/pull from the remote repo/branch "origin/main".
+7. Now you can just use git like normal.
+    - ``` git add . ``` -- Add the untracked default project files that qt creator gives you.
+    - ``` git commit -m "Whatevers" ``` -- Commit to your local branch
+    - ``` git push ``` -- Pushes your changes to the remote repository.
+  
+Additional Notes:
+Make sure not to push build files to your github repository!
+Your github repo for for a Qt Project should contain the source files necessary for building your program.
 
+
+Ok, now lets say you want to clone a project. I'd recommend just using the terminal to clone to your local project directory.
+1. Run ``` git clone (YOUR HTTPS / SSH REPO LINK) ```. Authenticate like normal. (Unless you clone a public repo using https.)
+2. Open the project up in Qt Creator. Everything should be there and you can continue working like normal.
 
 ## Compiling, Running, and Releasing a Program
