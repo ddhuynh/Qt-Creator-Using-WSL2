@@ -144,6 +144,6 @@ I'm gonna add the source files for a basic Qt Program to this repository and rel
 I hope it works!
 
 If you've made it this far, congrats! This whole thing was basically just a huge wall of text, but I hope something helped if you were having issues.
-Also this isn't a perfect guide by any means, but just what I've experienced.
+Also this isn't a perfect guide by any means, but just what I've experienced. (And no, it's not AI generated. I spent more time than I should've making this...)
 
 Feel free to add an issue to this repo if you discover one!
