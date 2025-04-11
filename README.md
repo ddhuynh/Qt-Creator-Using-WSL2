@@ -63,19 +63,24 @@ Once it's downloaded and installed, Qt Creator should see it automatically in ``
 ### Now we just need to set up a GitHub repo and a Qt Project:
 1. Create a new project in Qt Creator. Add it to whatever directory you want to store your projects in. Use git for version control on the final screen.
     - This initializes an empty git repository and adds a .gitignore. We're going to add a remote to this.
+
 2. Set up an empty repository on github. It can be private or public. You can add a readme, but otherwise keep it empty for simplicity.
+
 3. Using the terminal in Qt Creator, navigate to the directory your project is located in. (The directory with the .git hidden folder!)
+
 4. Run the command: ``` git remote add origin (YOUR HTTPS / SSH REPOSITORY LINK) ```.
     - This adds a connection to your github repository. You will eventually need to authenticate to make changes to that repository.
     - Depending on if you're using a PAT or SSH key, you need to do things differently here.
     - If you're using an SSH key, make sure you can authenticate with your repository and run git operations through the terminal you're using.
       If you've generateed the keys, they should be located in either ``` C:\Users\YOURUSERNAME\.ssh ``` for windows, or ``` \home\YOURUSERNAME\.ssh ``` for linux.
     - If you're using HTTPS/PAT, I believe you just need to input the PAT for a repo when the prompted for a password. (I don't use PATs, so I'm not familiar with this.)
-6. Now we need to ensure everything is working correctly. Run the following commands in your terminal: (You will be asked to authenticate using PATs or SSH)
+
+5. Now we need to ensure everything is working correctly. Run the following commands in your terminal: (You will be asked to authenticate using PATs or SSH)
     - ``` git fetch ``` -- This fetches content from the remote repository.
     - ``` git pull origin main ``` -- This will fetch+merge the readme from the github repo to your local repo. If there are merge conflicts, you'll need to resolve them before being able to pull.
     - ``` git branch --set-upstream-to=origin/main main ``` -- Tells your local branch "main" to push/pull from the remote repo/branch "origin/main".
-7. Now you can just use git like normal.
+
+6. Now you can just use git like normal.
     - ``` git add . ``` -- Add the untracked default project files that qt creator gives you.
     - ``` git commit -m "Whatevers" ``` -- Commit to your local branch
     - ``` git push ``` -- Pushes your changes to the remote repository.
