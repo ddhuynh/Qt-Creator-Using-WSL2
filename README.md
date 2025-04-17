@@ -2,9 +2,9 @@
 
 !!! WARNING !!!
 
-Huge wall of text below. Super scary.
+Huge wall of text below.
 
-Last Updated: 4/10/2025 (I won't be actively updating this anymore unless people are having issues.)
+Last Updated: 4/16/2025 (I won't be actively updating this anymore unless people are having issues.)
 
 Recently I've been messing around with Qt Creator trying to develop applications for personal usage, but I've struggled a bit with setting up the framework itself.
 
