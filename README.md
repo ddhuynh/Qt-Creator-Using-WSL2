@@ -1,10 +1,6 @@
 # Setting up Qt Creator Using WSL2 on Windows 11
 
-!!! WARNING !!!
-
-Huge wall of text below.
-
-Last Updated: 4/16/2025 (I won't be actively updating this anymore unless people are having issues.)
+Last Updated: 5/05/2025
 
 Recently I've been messing around with Qt Creator trying to develop applications for personal usage, but I've struggled a bit with setting up the framework itself.
 
@@ -93,7 +89,6 @@ Your github repo for for a Qt Project should contain the source files necessary 
 1. Run ``` git clone (YOUR HTTPS / SSH REPO LINK) ```. Authenticate like normal. (If you clone a public repo using HTTPS, you don't need to authenticate.)
 2. Open the project up in Qt Creator. Everything should be there and you can continue working like normal.
 
-Man... what a long section...
 
 ## Compiling, Running, and Releasing a Program
 OK! Last section. Lets make this quick.
@@ -116,34 +111,24 @@ If you use git bash, you should run this in the terminal:
 ```
 
 Swap the version number with the Qt version you're using. (Or check the qt folder to see your version.)
-I'm not really sure what's up with all the other toolchains, so I just use mingw_64.
 
 Great! Now what?
 
 ### Here's how to release the program.
-1. Swap to the release build by clicking on the PC icon above the Green play button, at the bottom left corner of Qt Creator. (I'd add images here to show you, but I'm getting really lazy.)
+1. Swap to the release build by clicking on the PC icon above the Green play button, at the bottom left corner of Qt Creator.
 2. Build the project on that configuration by clicking the hammer below, or by going to ``` Build > Build Project "PROJECTNAME" ```
 3. This will create a folder inside ``` build/ ``` in your project directory. It should say -Release at the end of the folder name.
 
 (If you try to ship that release folder without using windeployqt, you'll likely find that you're missing some dlls and can't run the program.)
 
-4. So we want to run windeploy.exe on the projectname.exe in that release build folder. This will add the appropriate dlls to that folder.
+4. So we want to run windeployqt.exe on the projectname.exe in that release build folder. You can delete all the other files in this folder EXCEPT for the .exe file.
+   Running ``` windeployqt.exe ``` on the ``` program.exe ``` will add the dlls needed for the program to work.
+   
    You have a few options here.
-   - Add Qt Creator's bin folder to your system environment variable. This allows you to use windeployqt.exe on any windows-based terminal (not WSL2 cuz it's on linux) without typing the full path to windeploy.exe.
+   - Add Qt Creator's bin folder to your system environment variable. This allows you to use windeployqt.exe on any windows-based terminal without typing the full path to windeploy.exe.
      If you do this, be careful! You might download your release build and see that the program works, but it'll be missing the required dlls if other people download it, since they don't have the Qt bin folder in their system environment variables.
    - The second option is to run windeployqt using the full path I provided above. (You could probably make a shortcut for this.)
      For example, you would change your terminal directory to wherever the release build is created e.g. ``` \build\Desktop_Qt_6_9_0_MinGW_64_bit-Release ```.
-     Then, run the windeployqt path I provided above with the .exe file in that folder. That should add the appropriate dll files, so anyone can use your program.
+     Then, run the windeployqt path I provided above with the .exe file in that folder.
 
-5. Finally, you can ship your program out! Just zip up that release folder and sail away!
-
-P.S.
-
-I'm gonna add the source files for a basic Qt Program to this repository and release the program under packages.
-
-I hope it works!
-
-If you've made it this far, congrats! This whole thing was basically just a huge wall of text, but I hope something helped if you were having issues.
-Also this isn't a perfect guide by any means, but just what I've experienced. (And no, it's not AI generated. I spent more time than I should've making this...)
-
-Feel free to add an issue to this repo if you discover one!
+5. Finally, you can ship your program out! Just zip up that release folder and send it out!
